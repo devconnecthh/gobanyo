@@ -46,3 +46,20 @@ npx create-nuxt-app
 # enable support for SCSS
 yarn add node-sass sass-loader -D
 ```
+
+## Outline / idea
+
+The idea is to provide a feedback system for [GoBanyo](https://gobanyo.org/en/gobanyo-waschen-ist-wurde/).
+It should enable people using their shower-bus to give feedback on the service.
+
+### UX requirements
+
+- fully offline-capable
+- easy to understand
+- language-independent (e.g. use icons/emoticons)
+
+### Technical requirements
+
+- easy to apply (e.g. via a cheap tablet)
+- no server/storage should be required for simplicity and data-protection
+- export of gathered data / analysis (possibly using a PIN and the [Web Share API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share))
