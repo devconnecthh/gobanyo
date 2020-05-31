@@ -1,0 +1,49 @@
+$white: #fff !default;
+$gray-100: #f0f4f8 !default;
+$gray-200: #d9e2ec !default;
+$gray-300: #bcccdc !default;
+$gray-400: #9fb3c8 !default;
+$gray-500: #829ab1 !default;
+$gray-600: #627d98 !default;
+$gray-700: #486581 !default;
+$gray-800: #334e68 !default;
+$gray-900: #243b53 !default;
+$black: #102a43 !default;
+
+$blue: #0f609b !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e66a6a !default;
+$red: #ba2525 !default;
+$orange: #e9b949 !default;
+$yellow: #f7d070 !default;
+$green: #079a82 !default;
+$teal: #2dcca7 !default;
+$cyan: #62b0e8 !default;
+
+$theme-colors: (
+  'primary': #1960ab,
+  'secondary': #ffd962,
+  'danger': #ba2525,
+  'success': #17b897,
+  'info': #267AB5,
+  'warning': #e9b949
+);
+
+$body-color: $gray-800;
+$logo-color: #0a5287;
+
+$link-color: #267AB5;
+
+$font-family-base: 'Lato', Avenir, Roboto, 'Helvetica Neue', Helvetica,
+Arial, sans-serif;
+$font-family-content: 'Lato', Avenir, Roboto, 'Helvetica Neue', Helvetica,
+Arial, sans-serif;
+$font-family-headings: 'Quicksand', sans-serif;
+
+$headings-font-family: $font-family-headings;
+$headings-font-weight: 900;
+$headings-color: $logo-color;
+
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-vue/src/index.scss';
