@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-btn v-if="canShare" @click="share">Share</b-btn>
+    <b-btn v-if="canShare" @click="share">{{ $t('actions.share') }}</b-btn>
     <pre>{{ dbContent }}</pre>
   </div>
 </template>

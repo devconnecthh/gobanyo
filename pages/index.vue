@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+      {{ $t('welcome') }}
       <ul :class="$style.moods">
         <li v-for="(mood, index) of MOODS" :key="index">
           {{ mood }}
