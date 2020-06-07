@@ -43,8 +43,19 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'nuxt-i18n'
   ],
+  i18n: {
+    locales: [
+      { code: 'de', iso: 'de-DE', name: 'Deutsch', file: 'de-DE.js' },
+      { code: 'en', iso: 'en-US', name: 'English', file: 'en-EN.js' }
+    ],
+    lazy: true,
+    defaultLocale: 'de',
+    langDir: 'assets/locales/',
+    strategy: 'no_prefix'
+  },
   /*
    ** Build configuration
    */

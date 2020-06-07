@@ -1,10 +1,24 @@
 <template>
   <div>
-    Survey
-    <button @click="good">Good</button>
-    <button @click="bad">Bad</button>
-    <p>Satisfaction: {{ satisfaction }}</p>
-    <button v-if="satisfaction" @click="complete">Complete</button>
+    {{ $t('survey.title') }}
+
+    <!-- Question: Satisfaction -->
+    <button
+      v-for="option of satisfactionOptions"
+      :key="option"
+      @click="storeSatisfaction(option)"
+    >
+      {{ $t(`survey.questions.satisfaction.options.${option}`) }}
+    </button>
+
+    <p v-if="satisfaction">
+      {{ $t('survey.questions.satisfaction.label') }}:
+      {{ $t(`survey.questions.satisfaction.options.${satisfaction}`) }}
+    </p>
+
+    <button v-if="satisfaction" @click="complete">
+      {{ $t('survey.submitButton') }}
+    </button>
   </div>
 </template>
 
@@ -16,19 +30,25 @@ export default {
   data() {
     return {
       satisfaction: null,
+      satisfactionOptions: ['good', 'bad'],
       startTime: new Date()
     }
   },
+  computed: {
+    resultContext() {
+      return {
+        language: this.$i18n.locale
+      }
+    }
+  },
   methods: {
-    good() {
-      this.satisfaction = 'good'
-    },
-    bad() {
-      this.satisfaction = 'bad'
+    storeSatisfaction(satisfaction) {
+      this.satisfaction = satisfaction
     },
     async complete() {
       await set(this.startTime.toISOString(), {
-        satisfaction: this.satisfaction
+        satisfaction: this.satisfaction,
+        ...this.resultContext
       })
       this.reset()
     },
