@@ -17,6 +17,8 @@
       </b-nav-item>
     </template>
 
+    {{ $store.hasModule('auth') }}
+
     <b-nav-item
       v-for="locale in $i18n.locales"
       :key="locale.code"

@@ -1,12 +1,14 @@
 import { PIN_STORAGE_KEY, PIN_PRECONFIGURED } from '~/config/auth'
 
-export function getPin() {
+function getPin() {
   return localStorage.getItem(PIN_STORAGE_KEY) || PIN_PRECONFIGURED
 }
 
-export function isCurrentPin(pin) {
+function isCurrentPin(pin) {
   return pin === getPin()
 }
+
+export const namespaced = true
 
 export const state = () => ({
   loggedIn: false
