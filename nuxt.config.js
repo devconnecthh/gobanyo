@@ -46,6 +46,9 @@ export default {
     '@nuxtjs/pwa',
     'nuxt-i18n'
   ],
+  bootstrapVue: {
+    icons: true // Install the IconsPlugin (in addition to BootStrapVue plugin
+  },
   i18n: {
     locales: [
       { code: 'de', iso: 'de-DE', name: 'Deutsch', file: 'de-DE.js' },
