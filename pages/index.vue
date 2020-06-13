@@ -15,6 +15,7 @@
 import { MOODS } from '~/config/moods'
 
 export default {
+  name: 'IndexPage',
   data() {
     return {
       MOODS
