@@ -24,6 +24,8 @@ async function getDbContent() {
 }
 
 export default {
+  name: 'AdminExportPage',
+  middleware: 'auth',
   data() {
     return { dbContent: {}, canShare: false }
   },

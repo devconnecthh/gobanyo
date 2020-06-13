@@ -15,5 +15,12 @@ export default {
       }
     },
     submitButton: 'Absenden'
+  },
+  admin: {
+    login: {
+      invalidPin: 'Ungültige PIN. Bitte versuchen Sie es erneut.',
+      input: 'Geben Sie Ihre PIN ein',
+      submit: 'Login'
+    }
   }
 }
