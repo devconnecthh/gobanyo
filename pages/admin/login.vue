@@ -14,24 +14,27 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { Auth, AuthError } from '~/state/auth'
 import { PIN_RETRY_TIMEOUT_MS } from '~/config/auth'
 
 export default {
   name: 'AdminLoginPage',
   data() {
     return {
+      Auth,
       pin: '',
       pinInvalidError: false
     }
   },
   methods: {
-    ...mapActions('auth', ['login']),
     submit() {
       try {
-        this.login(this.pin)
+        this.Auth.login(this.pin)
         this.$router.push('/admin')
       } catch (e) {
+        if (!(e instanceof AuthError)) {
+          throw e
+        }
         this.pin = ''
         this.pinInvalidError = true
         setTimeout(() => {
