@@ -6,7 +6,7 @@
     <b-form v-else @submit.prevent="submit">
       <label>
         {{ $t('pages.adminLogin.input') }}
-        <b-input v-model="pin" type="number" />
+        <b-input v-model="pin" type="password" inputmode="numeric" />
       </label>
       <b-btn type="submit">{{ $t('actions.login') }}</b-btn>
     </b-form>
