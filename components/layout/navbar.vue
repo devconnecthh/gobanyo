@@ -1,18 +1,18 @@
 <template>
   <b-nav>
-    <b-nav-item to="/">Home</b-nav-item>
-    <b-nav-item to="/survey">Survey</b-nav-item>
+    <b-nav-item to="/">{{ $t('pages.home.title') }}</b-nav-item>
+    <b-nav-item to="/survey">{{ $t('pages.survey.title') }}</b-nav-item>
 
     <template v-if="!loggedIn">
       <b-nav-item to="/admin/login">
         <b-icon-box-arrow-in-right />
-        Login
+        {{ $t('actions.login') }}
       </b-nav-item>
     </template>
     <template v-else>
-      <b-nav-item to="/admin">Admin</b-nav-item>
+      <b-nav-item to="/admin">{{ $t('pages.admin.title') }}</b-nav-item>
       <b-nav-item @click="logout">
-        Logout
+        {{ $t('actions.logout') }}
         <b-icon-box-arrow-right />
       </b-nav-item>
     </template>

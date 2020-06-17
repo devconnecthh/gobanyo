@@ -1,14 +1,14 @@
 <template>
   <main>
     <b-alert v-if="pinInvalidError" show variant="warning">
-      {{ $t('admin.login.invalidPin') }}
+      {{ $t('pages.adminLogin.invalidPin') }}
     </b-alert>
     <b-form v-else @submit.prevent="submit">
       <label>
-        {{ $t('admin.login.input') }}
+        {{ $t('pages.adminLogin.input') }}
         <b-input v-model="pin" type="number" />
       </label>
-      <b-btn type="submit">{{ $t('admin.login.submit') }}</b-btn>
+      <b-btn type="submit">{{ $t('actions.login') }}</b-btn>
     </b-form>
   </main>
 </template>
