@@ -1,6 +1,8 @@
 export default {
   welcome: 'Welcome',
   actions: {
+    login: 'Login',
+    logout: 'Logout',
     share: 'Share'
   },
   survey: {
@@ -16,11 +18,19 @@ export default {
     },
     submitButton: 'Submit'
   },
-  admin: {
-    login: {
+  pages: {
+    survey: {
+      title: 'Survey'
+    },
+    home: {
+      title: 'Home'
+    },
+    admin: {
+      title: 'Administration'
+    },
+    adminLogin: {
       invalidPin: 'PIN is invalid. Please try again.',
-      input: 'Enter your PIN',
-      submit: 'Login'
+      input: 'Enter your PIN'
     }
   }
 }
