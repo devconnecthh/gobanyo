@@ -1,6 +1,7 @@
+import { Auth } from '~/state/auth'
 // https://nuxtjs.org/api/pages-middleware/#named-middleware
-export default function auth({ store, redirect }) {
-  if (!store.state.auth.loggedIn) {
+export default function auth({ redirect }) {
+  if (!Auth.loggedIn) {
     redirect('/admin/login')
   }
 }

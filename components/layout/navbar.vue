@@ -3,7 +3,7 @@
     <b-nav-item to="/">{{ $t('pages.home.title') }}</b-nav-item>
     <b-nav-item to="/survey">{{ $t('pages.survey.title') }}</b-nav-item>
 
-    <template v-if="!loggedIn">
+    <template v-if="!Auth.loggedIn">
       <b-nav-item to="/admin/login">
         <b-icon-box-arrow-in-right />
         {{ $t('actions.login') }}
@@ -11,7 +11,7 @@
     </template>
     <template v-else>
       <b-nav-item to="/admin">{{ $t('pages.admin.title') }}</b-nav-item>
-      <b-nav-item @click="logout">
+      <b-nav-item @click="Auth.logout">
         {{ $t('actions.logout') }}
         <b-icon-box-arrow-right />
       </b-nav-item>
@@ -29,12 +29,13 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { Auth } from '~/state/auth'
 
 export default {
-  computed: { ...mapState('auth', ['loggedIn']) },
-  methods: {
-    ...mapActions('auth', ['logout'])
+  data() {
+    return {
+      Auth
+    }
   }
 }
 </script>
