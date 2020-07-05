@@ -1,6 +1,9 @@
 <template>
   <div>
     <b-btn v-if="canShare" @click="share">{{ $t('actions.share') }}</b-btn>
+    <b-btn :href="jsonDataUri" download="feedback.json">{{
+      $t('actions.download')
+    }}</b-btn>
     <pre>{{ dbContent }}</pre>
   </div>
 </template>
@@ -28,6 +31,13 @@ export default {
   middleware: 'auth',
   data() {
     return { dbContent: {}, canShare: false }
+  },
+  computed: {
+    jsonDataUri() {
+      return `data:application/json;charset=utf-8,${encodeURIComponent(
+        JSON.stringify(this.dbContent)
+      )}`
+    }
   },
   mounted() {
     this.loadContent()
