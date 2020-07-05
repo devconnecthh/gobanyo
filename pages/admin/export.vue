@@ -1,14 +1,18 @@
 <template>
   <div>
-    <b-btn v-if="canShare" @click="share">{{ $t('actions.share') }}</b-btn>
-    <b-btn :href="jsonDataUri" download="feedback.json">{{
-      $t('actions.download')
-    }}</b-btn>
-    <pre>{{ dbContent }}</pre>
+    <b-progress-bar v-if="!csvContent" />
+    <template v-else>
+      <b-btn v-if="canShare" @click="share">{{ $t('actions.share') }}</b-btn>
+      <b-btn :href="csvDataUri" download="feedback.csv">{{
+        $t('actions.download')
+      }}</b-btn>
+      <pre>{{ csvContent }}</pre>
+    </template>
   </div>
 </template>
 <script>
 import { get, keys } from 'idb-keyval'
+import * as jsonexport from 'jsonexport/dist'
 
 async function loadTimestamp(timestamp) {
   const value = await get(timestamp)
@@ -30,12 +34,12 @@ export default {
   name: 'AdminExportPage',
   middleware: 'auth',
   data() {
-    return { dbContent: {}, canShare: false }
+    return { csvContent: null, canShare: false }
   },
   computed: {
-    jsonDataUri() {
-      return `data:application/json;charset=utf-8,${encodeURIComponent(
-        JSON.stringify(this.dbContent)
+    csvDataUri() {
+      return `data:text/csv;charset=utf-8,${encodeURIComponent(
+        this.csvContent
       )}`
     }
   },
@@ -45,12 +49,14 @@ export default {
   },
   methods: {
     async loadContent() {
-      this.dbContent = await getDbContent()
+      const dbContent = await getDbContent()
+      this.csvContent = await jsonexport(dbContent)
     },
     async share() {
       const shareData = {
         title: `Result exports ${new Date().toISOString()}`,
-        text: JSON.stringify(this.dbContent, null, 2)
+        text: 'Feedback :)',
+        url: this.csvDataUri
       }
       await navigator.share(shareData).catch(() => null)
     }
