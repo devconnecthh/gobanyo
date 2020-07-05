@@ -56,7 +56,7 @@ export default {
       const shareData = {
         title: `Result exports ${new Date().toISOString()}`,
         text: 'Feedback :)',
-        url: this.csvDataUri
+        files: [this.csvDataUri]
       }
       await navigator.share(shareData).catch(() => null)
     }
