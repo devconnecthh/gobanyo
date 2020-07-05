@@ -3,7 +3,8 @@ export default {
   actions: {
     login: 'Login',
     logout: 'Logout',
-    share: 'Share'
+    share: 'Share',
+    download: 'Download'
   },
   survey: {
     title: 'Survey',

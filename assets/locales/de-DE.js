@@ -3,7 +3,8 @@ export default {
   actions: {
     login: 'Anmelden',
     logout: 'Abmelden',
-    share: 'Teilen'
+    share: 'Teilen',
+    download: 'Herunterladen'
   },
   survey: {
     title: 'Umfrage',
