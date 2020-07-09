@@ -16,6 +16,9 @@ const storage = {
   set login(value) {
     localStorage.setItem(LOGGED_IN_STORAGE_KEY, JSON.stringify(value))
   },
+  setPin(newPin) {
+    localStorage.setItem('pin', JSON.stringify(newPin))
+  },
 }
 
 export function isCurrentPin(pin) {
@@ -42,6 +45,12 @@ export const Auth = new Vue({
       this.loggedIn = false
       storage.login = false
       window.location.href = '/'
+    },
+    changePin(oldPin, newPin) {
+      if (!isCurrentPin(oldPin)) {
+        throw new AuthError('PIN invalid')
+      }
+      storage.setPin(newPin)
     },
   },
 })
