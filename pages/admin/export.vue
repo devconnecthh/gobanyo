@@ -53,10 +53,14 @@ export default {
       this.csvContent = await jsonexport(dbContent)
     },
     async share() {
+      const blob = new Blob([this.csvContent], {
+        type: 'text/csv;charset=utf-8;'
+      })
+
       const shareData = {
         title: `Result exports ${new Date().toISOString()}`,
         text: 'Feedback :)',
-        files: [this.csvDataUri]
+        files: [blob]
       }
       await navigator.share(shareData).catch(() => null)
     }
