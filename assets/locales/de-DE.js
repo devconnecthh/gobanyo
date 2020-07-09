@@ -29,6 +29,13 @@ export default {
     admin: {
       title: 'Administration',
     },
+    adminExport: {
+      title: 'Export',
+    },
+    adminChangePin: {
+      title: 'PIN ändern',
+      submitButton: 'PIN ändern',
+    },
     adminLogin: {
       invalidPin: 'Ungültige PIN. Bitte versuchen Sie es erneut.',
       input: 'Geben Sie Ihre PIN ein',

@@ -5,10 +5,6 @@ import {
   LOGGED_IN_STORAGE_KEY,
 } from '~/config/auth'
 
-export function getPin() {
-  return localStorage.getItem(PIN_STORAGE_KEY) || PIN_PRECONFIGURED
-}
-
 const storage = {
   get login() {
     return JSON.parse(localStorage.getItem(LOGGED_IN_STORAGE_KEY))
@@ -16,16 +12,23 @@ const storage = {
   set login(value) {
     localStorage.setItem(LOGGED_IN_STORAGE_KEY, JSON.stringify(value))
   },
-  setPin(newPin) {
-    localStorage.setItem('pin', JSON.stringify(newPin))
+  get pin() {
+    return (
+      JSON.parse(localStorage.getItem(PIN_STORAGE_KEY)) || PIN_PRECONFIGURED
+    )
+  },
+  set pin(newPin) {
+    localStorage.setItem(PIN_STORAGE_KEY, JSON.stringify(newPin))
   },
 }
 
 export function isCurrentPin(pin) {
-  return pin === getPin()
+  return pin === storage.pin
 }
 
 export class AuthError extends Error {}
+
+export class PinRequirementError extends Error {}
 
 export const Auth = new Vue({
   data() {
@@ -50,7 +53,10 @@ export const Auth = new Vue({
       if (!isCurrentPin(oldPin)) {
         throw new AuthError('PIN invalid')
       }
-      storage.setPin(newPin)
+      if (newPin.length < 4) {
+        throw new PinRequirementError('PIN too short')
+      }
+      storage.pin = newPin
     },
   },
 })
