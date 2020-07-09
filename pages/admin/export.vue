@@ -53,7 +53,9 @@ export default {
       this.csvContent = await jsonexport(dbContent)
     },
     async share() {
-      const file = new File(['foo bar'], 'feedback.csv', { type: 'text/csv' })
+      const file = new File([this.csvContent], 'feedback.csv', {
+        type: 'text/csv',
+      })
 
       const shareData = {
         title: `Result exports ${new Date().toISOString()}`,
