@@ -31,15 +31,15 @@ export default {
     return {
       satisfaction: null,
       satisfactionOptions: ['good', 'bad'],
-      startTime: new Date()
+      startTime: new Date(),
     }
   },
   computed: {
     resultContext() {
       return {
-        language: this.$i18n.locale
+        language: this.$i18n.locale,
       }
-    }
+    },
   },
   methods: {
     storeSatisfaction(satisfaction) {
@@ -48,13 +48,13 @@ export default {
     async complete() {
       await set(this.startTime.toISOString(), {
         satisfaction: this.satisfaction,
-        ...this.resultContext
+        ...this.resultContext,
       })
       this.reset()
     },
     reset() {
       this.startTime = new Date()
-    }
-  }
+    },
+  },
 }
 </script>

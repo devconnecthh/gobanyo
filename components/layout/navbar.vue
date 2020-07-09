@@ -34,8 +34,8 @@ import { Auth } from '~/state/auth'
 export default {
   data() {
     return {
-      Auth
+      Auth,
     }
-  }
+  },
 }
 </script>

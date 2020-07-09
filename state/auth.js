@@ -2,7 +2,7 @@ import Vue from 'vue'
 import {
   PIN_STORAGE_KEY,
   PIN_PRECONFIGURED,
-  LOGGED_IN_STORAGE_KEY
+  LOGGED_IN_STORAGE_KEY,
 } from '~/config/auth'
 
 export function getPin() {
@@ -15,7 +15,7 @@ const storage = {
   },
   set login(value) {
     localStorage.setItem(LOGGED_IN_STORAGE_KEY, JSON.stringify(value))
-  }
+  },
 }
 
 export function isCurrentPin(pin) {
@@ -27,7 +27,7 @@ export class AuthError extends Error {}
 export const Auth = new Vue({
   data() {
     return {
-      loggedIn: storage.login
+      loggedIn: storage.login,
     }
   },
   methods: {
@@ -42,6 +42,6 @@ export const Auth = new Vue({
       this.loggedIn = false
       storage.login = false
       window.location.href = '/'
-    }
-  }
+    },
+  },
 })

@@ -4,7 +4,7 @@ export default {
     login: 'Anmelden',
     logout: 'Abmelden',
     share: 'Teilen',
-    download: 'Herunterladen'
+    download: 'Herunterladen',
   },
   survey: {
     title: 'Umfrage',
@@ -13,25 +13,25 @@ export default {
         label: 'Zufriedenheit',
         options: {
           good: 'Gut',
-          bad: 'Schlecht'
-        }
-      }
+          bad: 'Schlecht',
+        },
+      },
     },
-    submitButton: 'Absenden'
+    submitButton: 'Absenden',
   },
   pages: {
     survey: {
-      title: 'Umfrage'
+      title: 'Umfrage',
     },
     home: {
-      title: 'Start'
+      title: 'Start',
     },
     admin: {
-      title: 'Administration'
+      title: 'Administration',
     },
     adminLogin: {
       invalidPin: 'Ungültige PIN. Bitte versuchen Sie es erneut.',
-      input: 'Geben Sie Ihre PIN ein'
-    }
-  }
+      input: 'Geben Sie Ihre PIN ein',
+    },
+  },
 }
