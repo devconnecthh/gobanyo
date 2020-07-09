@@ -18,7 +18,7 @@ async function loadTimestamp(timestamp) {
   const value = await get(timestamp)
   return {
     id: timestamp,
-    ...value
+    ...value,
   }
 }
 
@@ -39,9 +39,9 @@ export default {
   computed: {
     csvDataUri() {
       return `data:text/csv;charset=utf-8,${encodeURIComponent(
-        this.csvContent
+        this.csvContent,
       )}`
-    }
+    },
   },
   mounted() {
     this.loadContent()
@@ -54,16 +54,16 @@ export default {
     },
     async share() {
       const blob = new Blob([this.csvContent], {
-        type: 'text/csv;charset=utf-8;'
+        type: 'text/csv;charset=utf-8;',
       })
 
       const shareData = {
         title: `Result exports ${new Date().toISOString()}`,
         text: 'Feedback :)',
-        files: [blob]
+        blob,
       }
       await navigator.share(shareData).catch(() => null)
-    }
-  }
+    },
+  },
 }
 </script>

@@ -23,7 +23,7 @@ export default {
     return {
       Auth,
       pin: '',
-      pinInvalidError: false
+      pinInvalidError: false,
     }
   },
   methods: {
@@ -41,7 +41,7 @@ export default {
           this.pinInvalidError = false
         }, PIN_RETRY_TIMEOUT_MS)
       }
-    }
-  }
+    },
+  },
 }
 </script>

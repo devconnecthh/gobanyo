@@ -18,9 +18,9 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      MOODS
+      MOODS,
     }
-  }
+  },
 }
 </script>
 

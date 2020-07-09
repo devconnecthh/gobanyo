@@ -4,7 +4,7 @@ export default {
     login: 'Login',
     logout: 'Logout',
     share: 'Share',
-    download: 'Download'
+    download: 'Download',
   },
   survey: {
     title: 'Survey',
@@ -13,25 +13,25 @@ export default {
         label: 'Satisfaction',
         options: {
           good: 'Good',
-          bad: 'Bad'
-        }
-      }
+          bad: 'Bad',
+        },
+      },
     },
-    submitButton: 'Submit'
+    submitButton: 'Submit',
   },
   pages: {
     survey: {
-      title: 'Survey'
+      title: 'Survey',
     },
     home: {
-      title: 'Home'
+      title: 'Home',
     },
     admin: {
-      title: 'Administration'
+      title: 'Administration',
     },
     adminLogin: {
       invalidPin: 'PIN is invalid. Please try again.',
-      input: 'Enter your PIN'
-    }
-  }
+      input: 'Enter your PIN',
+    },
+  },
 }
