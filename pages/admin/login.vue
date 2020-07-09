@@ -21,7 +21,6 @@ export default {
   name: 'AdminLoginPage',
   data() {
     return {
-      Auth,
       pin: '',
       pinInvalidError: false,
     }
@@ -29,7 +28,7 @@ export default {
   methods: {
     submit() {
       try {
-        this.Auth.login(this.pin)
+        Auth.login(this.pin)
         this.$router.push('/admin')
       } catch (e) {
         if (!(e instanceof AuthError)) {
