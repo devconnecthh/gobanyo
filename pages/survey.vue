@@ -38,6 +38,7 @@ export default {
     resultContext() {
       return {
         language: this.$i18n.locale,
+        location: null /* to be implemented */,
       }
     },
   },
