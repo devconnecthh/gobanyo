@@ -24,6 +24,7 @@
 
 <script>
 import { set } from 'idb-keyval'
+import { Location } from '~/state/location'
 
 export default {
   name: 'SurveyPage',
@@ -38,7 +39,11 @@ export default {
     resultContext() {
       return {
         language: this.$i18n.locale,
-        location: null /* to be implemented */,
+        location: Location.locationName,
+        coords: Location.coords && {
+          longitude: Location.coords.longitude,
+          latitude: Location.coords.latitude,
+        },
       }
     },
   },
